@@ -141,7 +141,7 @@ func Fetch[T any](cache Cacher, key string, expiration time.Duration, fn func() 
 			if err != nil {
 				return zero, err
 			}
-			cache.Set(key, &value, expiration)
+			_ = cache.Set(key, &value, expiration)
 			return value, nil
 		}
 		return zero, err
